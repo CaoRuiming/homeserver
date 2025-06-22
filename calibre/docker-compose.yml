@@ -1,0 +1,21 @@
+services:
+  calibre-web-automated:
+    image: crocodilestick/calibre-web-automated:latest
+    container_name: calibre-web-automated
+    environment:
+      PUID: "${CALIBRE_USER_ID}"
+      PGID: "${CALIBRE_USER_ID}"
+      TZ: "${TZ}"
+    volumes:
+      - ./config:/config
+      - "${LIBRARY_DIR}:/calibre-library"
+      - "${INGEST_DIR}:/cwa-book-ingest"
+      #- /path/to/your/gmail/credentials.json:/app/calibre-web/gmail.json #Optional
+    ports:
+      - 8083:8083
+    restart: unless-stopped
+
+networks:
+  default:
+    external: true
+    name: homeserver

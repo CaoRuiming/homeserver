@@ -1,0 +1,18 @@
+services:
+  kavita:
+    image: jvmilazz0/kavita:latest
+    container_name: kavita
+    environment:
+      TZ: "${TZ}"
+      DOTNET_SYSTEM_GLOBALIZATION_INVARIANT: true
+    volumes:
+      - ./config:/kavita/config
+      - "${LIBRARY_DIR}:/books"
+    ports:
+      - 5000:5000
+    restart: unless-stopped
+
+networks:
+  default:
+    external: true
+    name: homeserver
