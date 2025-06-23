@@ -15,7 +15,6 @@ services:
     environment:
       MEILI_ADDR: http://meilisearch:7700
       BROWSER_WEB_URL: http://chrome:9222
-      CRAWLER_FULL_PAGE_ARCHIVE: true
       # OPENAI_API_KEY: ...
 
       # You almost never want to change the value of the DATA_DIR variable.
