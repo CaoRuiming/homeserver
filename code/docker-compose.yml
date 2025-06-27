@@ -1,0 +1,9 @@
+services:
+  openvscode-server:
+    image: gitpod/openvscode-server
+    container_name: openvscode-server
+    ports:
+      - 3002:3000
+    volumes:
+      - "${PROJECT_DIR}:/home/workspace:cached"
+    restart: "unless-stopped"
