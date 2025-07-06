@@ -112,6 +112,29 @@ Config (`/etc/exports`):
 
 URL to mount the drive: `nfs://homeserver.home.arpa/home/myusername/Storage`
 
+### Samba Setup
+
+Reference: https://documentation.ubuntu.com/server/how-to/samba/file-server/
+
+`workgroup` can be left as the default value.
+
+Add the following to `/etc/samba/smb.conf`:
+
+```
+[share]
+    comment = Ubuntu File Server Share
+    path = /path/to/share
+    browsable = yes
+    guest ok = no
+    read only = no
+    create mask = 0755
+    valid users = yourusername
+```
+
+Then run `sudo smbpasswd -a yourusername`.
+
+Restart the Samba service after config changes: `sudo systemctl restart smbd.service nmbd.service`
+
 ### Further Reading
 
 https://www.pcmag.com/how-to/copy-your-windows-installation-to-an-ssd
