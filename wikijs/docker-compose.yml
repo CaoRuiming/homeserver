@@ -32,8 +32,3 @@ services:
 
 volumes:
   wiki-db-data:
-
-networks:
-  default:
-    external: true
-    name: homeserver

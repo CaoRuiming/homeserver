@@ -11,7 +11,3 @@ services:
       - ./data:/data
       - ./letsencrypt:/etc/letsencrypt
 
-networks:
-  default:
-    external: true
-    name: homeserver

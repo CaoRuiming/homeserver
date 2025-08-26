@@ -11,8 +11,3 @@ services:
     ports:
       - 5000:5000
     restart: unless-stopped
-
-networks:
-  default:
-    external: true
-    name: homeserver
