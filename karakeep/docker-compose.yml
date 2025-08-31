@@ -2,6 +2,7 @@ services:
   karakeep:
     image: ghcr.io/karakeep-app/karakeep:${KARAKEEP_VERSION:-release}
     container_name: karakeep
+    user: $PUID:$PUID
     restart: unless-stopped
     volumes:
       # By default, the data is stored in a docker volume called "data".
