@@ -6,6 +6,7 @@ services:
     # Optionally, replace `latest` with a version tag like `v0.90.3`
     # Using `latest` may cause unintended updates to the container
     image: triliumnext/trilium:latest
+    container_name: trilium
     # Restart the container unless it was stopped by the user
     restart: unless-stopped
     environment:
