@@ -1,0 +1,23 @@
+services:
+  backrest:
+    image: garethgeorge/backrest:latest
+    container_name: backrest
+    user: $PUID:$PUID
+    hostname: backrest
+    volumes:
+      - ./backrest/data:/data
+      - ./backrest/config:/config
+      - ./backrest/cache:/cache
+      - ./backrest/tmp:/tmp
+      - ./backrest/rclone:/root/.config/rclone # Mount for rclone config (needed when using rclone remotes)
+      - "${BACKUP_DIR}:/userdata"  # Mount local paths to backup
+      - "${REPOS_DIR}:/repos"      # Mount local repos (optional for remote storage)
+    environment:
+      - BACKREST_DATA=/data
+      - BACKREST_CONFIG=/config/config.json
+      - XDG_CACHE_HOME=/cache
+      - TMPDIR=/tmp
+      - TZ=America/Los_Angeles
+    ports:
+      - "9898:9898"
+    restart: unless-stopped
