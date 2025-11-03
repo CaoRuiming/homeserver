@@ -11,6 +11,7 @@ services:
       - ./backrest/tmp:/tmp
       - ./backrest/rclone:/root/.config/rclone # Mount for rclone config (needed when using rclone remotes)
       - "${BACKUP_DIR}:/userdata"  # Mount local paths to backup
+      - "${BACKUP_DIR_2}:/userdata2"  # Mount local paths to backup
       - "${REPOS_DIR}:/repos"      # Mount local repos (optional for remote storage)
     environment:
       - BACKREST_DATA=/data
