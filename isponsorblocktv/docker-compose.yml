@@ -1,0 +1,10 @@
+services:
+    iSponsorBlockTV:
+        image: ghcr.io/dmunozv04/isponsorblocktv
+        container_name: iSponsorBlockTV
+        user: $PUID:$PUID
+        restart: unless-stopped
+        network_mode: host
+        volumes:
+        # Enter the same pathway as you used for your configurator
+        - "${DATA_DIR}:/app/data"
