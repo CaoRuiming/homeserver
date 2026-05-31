@@ -118,7 +118,7 @@ Reference: https://documentation.ubuntu.com/server/how-to/samba/file-server/
 
 `workgroup` can be left as the default value.
 
-Add the following to `/etc/samba/smb.conf`:
+Add the following to `/etc/samba/smb.conf`. `path` must be an absolute path.
 
 ```
 [share]
@@ -134,6 +134,12 @@ Add the following to `/etc/samba/smb.conf`:
 Then run `sudo smbpasswd -a yourusername`.
 
 Restart the Samba service after config changes: `sudo systemctl restart smbd.service nmbd.service`
+
+Allow `Samba` through the firewall if necessary:
+
+```sh
+sudo ufw allow Samba
+```
 
 ### Further Reading
 
