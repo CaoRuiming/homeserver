@@ -1,0 +1,5 @@
+docker-compose.env
+export/
+consume/
+data/
+media/
